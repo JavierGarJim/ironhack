@@ -1,9 +1,12 @@
 
+require 'colorize'
+
+
 class SponsoredPost < Post
 	def print_post
-		puts "SPONSORED Post title: #{@title}"
+		puts "#{@title}".colorize(:color => :red, :background => :white)
 		puts "****************************"
-		puts "Post text: #{@text}"
+		puts "#{@text}".colorize(:color => :black, :background => :white)
 		puts "----------------------------"
 		puts ""
 	end

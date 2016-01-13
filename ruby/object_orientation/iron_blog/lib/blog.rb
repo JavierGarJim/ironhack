@@ -17,10 +17,11 @@ class Blog
 
     	user_input = ""
     	page = 1
-    	post_number = 0
     	post_per_post = 3
 
     	while user_input != "exit"
+    		system "clear"
+    		
     		remaining_posts = post_per_post
 			i = 0
 

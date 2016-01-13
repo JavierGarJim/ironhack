@@ -1,4 +1,7 @@
 
+require 'colorize'
+
+
 class Post
     attr_reader :title, :date, :text
 
@@ -9,9 +12,9 @@ class Post
     end
 
 	def print_post
-		puts "Post title: #{@title}"
+		puts "#{@title}".colorize(:red)
 		puts "**************"
-		puts "Post text: #{@text}"
+		puts "#{@text}".colorize(:white)
 		puts "----------------"
 		puts ""
 	end
