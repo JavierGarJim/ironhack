@@ -9,9 +9,7 @@ class WordChain
 
 	def resolve_puzzle(start_word, end_word)
 		@start_word = start_word
-		@start_word_array = start_word.chars.to_a
 		@end_word = end_word
-		@end_word_array = end_word.chars.to_a
 		@word_length = start_word.length
 		@iteration = 0
 
@@ -29,43 +27,44 @@ class WordChain
 
 	private
 	def change_letter
-		puts "#{@iteration}. #{@start_word_array.join}"
+		puts "#{@iteration}. #{@start_word}"
 		
 		@iteration += 1
-		
-		(0..(@word_length - 1)).each do |i|
-			if !is_same_letter(i)				
-				temp_letter = @start_word_array[i]
 
-				@start_word_array[i] = @end_word_array[i]
+		last = (@word_length - 1)
 
-			 	if @dictionary.exists(@start_word_array.join)
+		(0..last).each do |i|
+			if @start_word[i] != @end_word[i]
+				temp_letter = @start_word[i]
+
+				@start_word[i] = @end_word[i]
+
+			 	if @dictionary.exists(@start_word)
 					change_letter()
 
 					return
 				else
-					@start_word_array[i] = temp_letter
+					@start_word[i] = temp_letter
 				end
 			end
 		end
 
-		if @start_word_array.join != @end_word_array.join
-			(0..(@word_length - 1)).each do |i|
-				new_word = @dictionary.get_similar_word(@start_word_array.join, i)
+		if @start_word != @end_word
+			(0..last).each do |i|
+				new_word = @dictionary.get_similar_word(@start_word, i)
 
 				if !new_word.nil?
-					@start_word_array = new_word.chars.to_a
+					@start_word = new_word
 
 					change_letter()
 
 					return
 				end
 			end
+
+			puts "\nFailed!\n\n"
 		end
-	end	
-
-
-
+	end
 
 	private
 	def initial_check
@@ -88,14 +87,5 @@ class WordChain
 		end
 
 		true
-	end
-
-	private
-	def is_same_letter(index)
-		if @start_word_array[index] == @end_word_array[index]
-			true
-		else
-			false
-		end
 	end
 end
