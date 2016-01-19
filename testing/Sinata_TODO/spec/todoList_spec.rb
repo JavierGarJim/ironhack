@@ -6,38 +6,50 @@ require_relative("../lib/todoList.rb")
 describe TodoList do
 	before :each do
 		@todoList = TodoList.new("Javi")
+    @task = Task.new("Walk the dog")
 	end
 
   	describe "#add_task" do
-    	it "adds a task" do
-        task = Task.new("Walk the dog")
-        @todoList.add_task(task)
-    		expect(@todoList.tasks.length).to eq(1)
+    	it "adds a task" do        
+        expect(@todoList.tasks.length).to eq(0)
+        
+        @todoList.add_task(@task)
+    		
+        expect(@todoList.tasks.length).to eq(1)
     	end
   	end
 
-  	describe "#delete_task" do
-    	it "deletes a task" do
-		    task = Task.new("Walk the dog")
-      	@todoList.add_task(task)
-      	@todoList.delete_task(task.id)
+  	describe "#delete_task_by_id" do
+    	it "deletes a task by its id" do
+        expect(@todoList.tasks.length).to eq(0)
+
+        @todoList.add_task(@task)
+puts "Here 1 =>"
+puts @todoList.tasks
+      	expect(@todoList.tasks.length).to eq(1)
+
+        @todoList.delete_task_by_id(@task.id)
+puts "Here 2 =>"
+puts @todoList.tasks
   		  expect(@todoList.tasks.length).to eq(0)
     	end
   	end
 
   	describe "#find_task_by_id" do
     	it "finds a task by its id" do
-        task = Task.new("Walk the dog")
-      	@todoList.add_task(task)
-      	@todoList.find_task_by_id(task.id)
-    		expect(@todoList.find_task_by_id(task.id)).to eq(task)
+      	@todoList.add_task(@task)
+
+      	@todoList.find_task_by_id(@task.id)
+
+    		expect(@todoList.find_task_by_id(@task.id)).to eq(@task)
     	end
 
     	it "returns nil if it does not find any task" do
-        task = Task.new("Walk the dog")
-        @todoList.add_task(task)
-      	@todoList.find_task_by_id(task.id)
-    		expect(@todoList.find_task_by_id(task.id+1)).to eq(nil)
+        @todoList.add_task(@task)
+
+      	@todoList.find_task_by_id(@task.id)
+
+    		expect(@todoList.find_task_by_id(@task.id+1)).to eq(nil)
     	end
   	end
 

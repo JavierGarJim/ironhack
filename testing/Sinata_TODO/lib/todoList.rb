@@ -14,15 +14,15 @@ class TodoList
     	@tasks.push(task)
     end
 
-    def delete_task(task_id)
-    	@tasks.delete_if do |task|
-    		task.id == task_id
+    def delete_task_by_id(task_id)
+    	@tasks.delete_if do |t|
+    		t.id == task_id
     	end
     end
 
     def find_task_by_id(task_id)
-    	@tasks.find do |task|
-    		task.id == task_id
+    	@tasks.find do |t|
+    		t.id == task_id
     	end
     end
 
