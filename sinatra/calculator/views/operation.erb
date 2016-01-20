@@ -1,0 +1,37 @@
+<!-- views/operation.erb -->
+<!doctype html>
+<html>
+	<head>
+		<title>Online Calculator</title>
+	</head>
+
+	<body>
+		<p>
+		<b><h1>Calculator</h1></b>
+		<form action="/do_operation" method="POST">
+			<input type="number" name="first_number" placeholder="1st number" value="<%= @first_number %>">
+			<input type="number" name="second_number" placeholder="2nd number">
+
+			<button type="submit" name="operation" value="add">ADD</button>
+			<button type="submit" name="operation" value="substract">SUBSTRAT</button>
+			<button type="submit" name="operation" value="multiply">MULTIPLY</button>
+			<button type="submit" name="operation" value="divide">DIVIDE</button>
+		</form>
+		</p>
+		
+		<p>
+		<label for="name">Your name:</label>
+		<input type="text" id="name" placeholder="Name">
+		</p>
+		
+		<p>
+		<label for="email">Your email:</label>
+		<input type="email" id="email" placeholder="you@email.com">
+		</p>
+
+		<p>
+		<input type="checkbox" id="terms">
+		<label for="terms">You agree to our not evil terms of service</label>
+		</p>
+	</body>
+</html>

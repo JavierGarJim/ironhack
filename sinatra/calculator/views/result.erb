@@ -1,0 +1,15 @@
+<!-- views/result.erb -->
+<!doctype html>
+<html>
+	<body>
+		<p>
+		<b><h1>Result:</h1></b>
+		<b><%= @result_str %></b>
+		</p>
+		<p>
+		<form action="/save_result/<%= @result %>" method="POST">
+			<button type="submit" name="save" value="<%= @result_str %>">SAVE</button>
+		</form>
+		</p>
+	</body>
+</html>
