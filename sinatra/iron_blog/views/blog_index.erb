@@ -1,0 +1,13 @@
+
+<h1>Welcome to IRON Blog!</h1>
+
+<% @posts.each_with_index do |post, index| %>
+	<ul>
+		<h3><a href="/blog/post/<%= index %>"><%= post.title %></a></h3>
+	</ul>
+<% end %>
+<h5>
+<a href="/blog/new_post">
+	Add New Post
+</a>
+</h5>

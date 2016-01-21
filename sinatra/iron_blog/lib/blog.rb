@@ -10,6 +10,13 @@ class Blog
 
     def add_post(post)
 		@posts.push(post)
+		@posts
+    end
+
+    def latest_posts
+    	sorted_posts = @posts.sort do |p1, p2|
+    		p2.date <=> p1.date
+    	end
     end
 
     def publish_front_page

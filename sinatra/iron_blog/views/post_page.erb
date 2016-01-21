@@ -1,0 +1,28 @@
+
+<h1>IRON Blog</h1>
+
+<table style="width:100%">
+	<tr>
+		<td align="left">
+			<h2><%= @post.title %></h2>
+		</td>
+		<td align="right">
+			<h5><%= @post.date.ctime %></h5>
+		</td>
+	</tr>
+	<tr>
+		<td align="left">
+			
+		</td>
+		<td align="right">
+			<h5><%= @post.author %></h5>
+			<h5><%= @post.category %></h5>
+		</td>		
+	</tr>
+</table>
+<h4><%= @post.text %></h4>
+<h5>
+<a href="/blog">
+	Back to blog
+</a>
+</h5>
