@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>Movie Lovers</h1>
+	<p>	
+		  The search <strong><%= @search.term %></strong> resulted in <%= @search.number_of_results %> movies.
+	</p>
+
+	<% if (@search.results.length < @search.max_results) || (@search.results.length) < 2 %>
+		<p>
+			Not enough results, sorry!
+		</p>
+	<% else %>
+		<p><strong>QUESTION: <%= @search.get_release_date_question() %></strong> (select poster)</p>
+		<table style="width:100%">
+			<% @search.results.each_with_index do |movie, i| %>
+				<tr>
+					<td align="left">
+						<h3><%= movie.title(true) %></h3>
+						<p>Directed by <%= movie.director[0] %></p>
+					</td>
+					<td align="center">
+						<% if i == @search.selected_movie_index %>
+							<img src="<%= movie.poster %>" height="200" width="200" onclick="alert('Correct!')">
+						<% else %>
+							<img src="<%= movie.poster %>" height="200" width="200" onclick="alert('Incorrect!')">
+						<% end %>
+					</td>
+				</tr>
+				<tr>
+				</tr>
+			<% end %>
+		</table>
+	<% end %>
+
+	<a href="/">
+		Back
+	</a>
+</body>
+</html>
