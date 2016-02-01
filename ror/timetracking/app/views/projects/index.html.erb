@@ -1,0 +1,11 @@
+<!-- <h1>Projects#index</h1> -->
+<ul>
+	<% @projects.each do |p| %>
+		<li><%= p.name %></li>
+
+		<% if p.description %>
+			<p><%= p.description %></p>
+		<% end %>
+	<% end %>
+</ul>
+<!-- <p>Find me in app/views/projects/index.html.erb</p> -->
