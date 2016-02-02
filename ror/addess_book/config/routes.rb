@@ -2,6 +2,17 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
+get '/contacts' => 'contacts#index'
+
+get '/contacts/new' => 'contacts#new'
+
+get '/contacts/info/:contact_id' => 'contacts#info'
+
+get '/contacts/favorite/add/:contact_id' => 'contacts#add_favorite'
+get '/contacts/favorite/delete/:contact_id' => 'contacts#delete_favorite'
+
+post("/contacts", :to => "contacts#create")
+
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 

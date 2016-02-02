@@ -1,0 +1,14 @@
+<h1>Contacts#index</h1>
+<a href="/contacts/new">Add contact</a>
+<ul>
+	<% @contacts.each do |c| %>
+		<li>
+			<% if c.favorite %>
+				<a href="/contacts/info/<%= c.id %>"><font color="red"><%= c.name %></font></a>
+			<% else %>
+				<a href="/contacts/info/<%= c.id %>"><%= c.name %></a>
+			<% end %>
+		</li>
+	<% end %>
+</ul>
+<p>Find me in app/views/contacts/index.html.erb</p>
