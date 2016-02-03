@@ -3,15 +3,15 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
 get '/contacts' => 'contacts#index'
+
 get '/contacts/new' => 'contacts#new'
+
 get '/contacts/info/:contact_id' => 'contacts#info'
+
 get '/contacts/favorite/add/:contact_id' => 'contacts#add_favorite'
 get '/contacts/favorite/delete/:contact_id' => 'contacts#delete_favorite'
-get '/contacts/search_results/:name' => 'contacts#search_results'
 
-post("/contacts/create", :to => "contacts#create")
-post("/contacts/search", :to => "contacts#search")
-
+post("/contacts", :to => "contacts#create")
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

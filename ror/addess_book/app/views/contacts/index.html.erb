@@ -1,22 +1,5 @@
-<h1>Contacts</h1>
-<div>
-<p>
+<h1>Contacts#index</h1>
 <a href="/contacts/new">Add contact</a>
-</p>
-</div>
-<div>
-<p>
-<form action="/contacts/search" method="POST">
-	<input type="text" name="contact[name]" id="contact_name" placeholder="Search Contact">
-
-  	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-
-  	<button type="submit">Seach</button>
-</form>
-</p>
-</div>
-<div>
-<p>
 <ul>
 	<% @contacts.each do |c| %>
 		<li>
@@ -28,8 +11,4 @@
 		</li>
 	<% end %>
 </ul>
-</p>
-</div>
-<div>
 <p>Find me in app/views/contacts/index.html.erb</p>
-</div>
