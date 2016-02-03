@@ -1,0 +1,19 @@
+<h1>URL shortener</h1>
+<div>
+<p>
+<form action="/" method="POST">
+	<input type="text" name="link[original]" id="original_url" placeholder="Original URL">
+
+  	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  	<button type="submit">Make shorter!</button>
+</form>
+</p>
+</div>
+<% unless @link.nil? %>
+<div>
+<p>
+<a href="/<%= @link.short %>"><%= @link.short %></text>
+</p>
+</div>
+<% end %>
