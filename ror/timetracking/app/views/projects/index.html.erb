@@ -2,7 +2,7 @@
 <ul>
 	<% @projects.each do |p| %>
 		<li>
-			<a href="/projects/<%= p.id %>/entries"><%= p.name %></a>: 
+			<%= link_to(p.name, project_entries_path(p)) %>
 			<% if p.description %>
 				<%= p.description %>
 			<% end %>

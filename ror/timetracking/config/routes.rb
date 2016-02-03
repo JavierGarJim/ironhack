@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 get '/' => 'site#home'
 
 resources(:projects, only: [:show, :new, :create, :index]) do
-  resources(:entries, only: [:new, :create, :index])
+  resources(:entries, only: [:new, :create, :index, :update, :edit])
 end
 
   # get '/contact' => 'site#contact'

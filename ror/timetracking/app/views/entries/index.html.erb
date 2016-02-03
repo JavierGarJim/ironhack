@@ -1,12 +1,17 @@
 <h1><%= @project.name %></h1>
 <ul>
-	<% @entries.each do |e| %>
+	<% @entries.each do |entry| %>
 		<li>
-			<%= e.hours %> h 
-			<%= e.minutes %> m -
-			<%= e.date %> - 
-			<%= e.comments %>
+			<%= entry.hours %> h 
+			<%= entry.minutes %> m -
+			<%= entry.date %> - 
+			<%= entry.comments %>
+			<%= link_to('Edit', edit_project_entry_path(@project, entry)) %>
 		</li>
 	<% end %>
 </ul>
-<a href="/projects">Back to projects</a>
+<div>
+<%= link_to('New entry', new_project_entry_path(@project)) %>
+<br>
+<%= link_to('Back to projects', projects_path) %>
+</div>
