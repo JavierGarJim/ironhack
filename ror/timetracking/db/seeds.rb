@@ -6,6 +6,12 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-25.times do |i|
-	Project.create(name: "P#{i}", description: "Project #{i}")
+5.times do |i|
+	p = Project.create(name: "P#{i}", description: "Project #{i}")
+
+	if i.odd?
+		p.entries.create(hours: 10 * i, minutes: 0, comments: "Entry #{i}", date: Time.current)
+	else
+		p.entries.create(hours: 20 * i, minutes: 0, comments: "Entry #{i}", date: Time.current)
+	end
 end

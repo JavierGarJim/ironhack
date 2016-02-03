@@ -21,6 +21,10 @@ class ContactsController < ApplicationController
 		redirect_to("/contacts")
   	end
 
+  	def search
+  		redirect_to("/contacts/search_results/#{params[:contact][:name]}")
+  	end
+
 	def info
 		contact_id = params[:contact_id]
 
@@ -47,5 +51,13 @@ class ContactsController < ApplicationController
 		contact.update_attributes(favorite: false)
 
 		redirect_to("/contacts")
-	end	
+	end
+
+	def search_results
+		name = params[:name]
+
+  		@contacts = Contact.where("name like ?", "%#{name}%")
+
+		render("search")
+	end
 end
