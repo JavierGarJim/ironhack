@@ -1,13 +1,19 @@
 Rails.application.routes.draw do
-  get 'projects/index'
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  get '/' => 'site#home'
-  get '/contact' => 'site#contact'
-  get '/projects' => "projects#index"
-  get '/projects/:project_id/entries' => "entries#index"
+get '/' => 'site#home'
+
+resources(:projects, only: [:show, :new, :create, :index]) do
+  resources(:entries, only: [:new, :create, :index])
+end
+
+  # get '/contact' => 'site#contact'
+  # get '/projects' => "projects#index"
+  # get '/projects/:project_id/entries' => "entries#index"
+  # get '/projects/:project_id/entries/new' => "entries#new"
+
+  # post '/projects/:project_id/entries' => "entries#create", as: :project_entries
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

@@ -10,4 +10,13 @@ class EntriesController < ApplicationController
 	  		render 'index'
 	  	end
 	end
+
+	def new
+		@project = Project.find params[:project_id]
+		@entry = @project.entries.new
+	end
+
+	def create
+
+	end
 end
