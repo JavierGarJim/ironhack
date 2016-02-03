@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/' => 'site#home'
   get '/contact' => 'site#contact'
   get '/projects' => "projects#index"
+  get '/projects/:project_id/entries' => "entries#index"
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
