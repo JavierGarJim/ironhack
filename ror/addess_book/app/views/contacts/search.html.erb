@@ -1,0 +1,21 @@
+<h1>Seach Results</h1>
+
+<div>
+<p>
+<ul>
+	<% @contacts.each do |c| %>
+		<li>
+			<% if c.favorite %>
+				<a href="/contacts/info/<%= c.id %>"><font color="red"><%= c.name %></font></a>
+			<% else %>
+				<a href="/contacts/info/<%= c.id %>"><%= c.name %></a>
+			<% end %>
+		</li>
+	<% end %>
+</ul>
+</p>
+</div>
+<div>
+<p>Find me in app/views/contacts/search.html.erb</p>
+</div>
+<a href="/contacts">Back to contacts</a>
