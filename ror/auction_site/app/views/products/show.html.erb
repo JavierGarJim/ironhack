@@ -1,0 +1,17 @@
+<h1><%= @product.title %></h1>
+<br>
+<h4><%= @product.description %></h4>
+<br>
+<h4><%= @product.deadline %></h4>
+<br>
+<ul>
+	<% @bids.each do |bid| %>
+		<li>
+			Amount: 
+			<%= bid.amount %>
+		</li>
+	<% end %>
+</ul>
+<%= link_to('User', user_path(@product.user_id)) %>
+<br>
+<%= link_to('Back to products', products_path) %>

@@ -1,0 +1,18 @@
+<h1><%= @user.name %></h1>
+<br>
+<h4>Products</h4>
+<ul>
+	<% @products.each do |product| %>
+		<li>
+			<%= product.title %>
+			<br>
+			<%= product.description %>
+			<br>
+		</li>
+	<% end %>
+</ul>
+<div>
+<%= link_to('Add new product', new_user_product_path(@user)) %>
+<br>
+<%= link_to('Back to user', user_path(@user)) %>
+</div>

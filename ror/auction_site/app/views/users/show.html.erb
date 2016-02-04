@@ -1,0 +1,9 @@
+<h1><%= @user.name %></h1>
+<br>
+<h4><%= @user.email %></h4>
+<br>
+<%= link_to('Products', user_products_path(@user)) %>
+<br>
+<%= link_to('Bids', user_bids_path(@user)) %>
+<br>
+<%= link_to('Back to users', users_path) %>
