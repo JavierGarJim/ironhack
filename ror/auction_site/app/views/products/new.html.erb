@@ -15,6 +15,9 @@
 	<%= f.label :deadline %>
 	<%= f.date_field :deadline %>
 	<br>
+	<%= f.label :min_bid_amount %>
+	<%= f.number_field :min_bid_amount %>
+	<br>
 	<%= f.label :email %>
 	<%= email_field_tag(:email, params[:email]) %>
 	<br>

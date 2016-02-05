@@ -44,7 +44,7 @@ class ProductsController < ApplicationController
 				@product = @user.products.new(product_params)
 
 				if @product.save
-					redirect_to action: 'index', controller: 'products', user_id: @user.id
+					redirect_to action: 'index', controller: 'products'
 				else
 					render 'new'
 				end
@@ -57,6 +57,6 @@ class ProductsController < ApplicationController
 	private
 
 	def product_params
-		params.require(:product).permit(:title, :description, :deadline)
+		params.require(:product).permit(:title, :description, :deadline, :min_bid_amount)
 	end
 end

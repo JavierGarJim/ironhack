@@ -1,0 +1,13 @@
+<h4>Bids</h4>
+<ul>
+	<% @bids.each do |bid| %>
+		<li>
+			<%= link_to(bid.amount, bid_path(bid)) %>
+		</li>
+	<% end %>
+</ul>
+<div>
+<%= link_to('Add new bid', new_bid_path) %>
+<br>
+<%= link_to('Back home', '/') %>
+</div>

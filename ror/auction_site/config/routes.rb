@@ -10,7 +10,7 @@ resources(:users, only: [:show, :create, :destroy, :new, :index]) do
 end
 
 resources(:products, only: [:index, :show, :create, :destroy, :new]) do
-    resources(:bids, only: [:create])
+  resources(:bids, only: [:new, :create])
 end
 
   # You can have the root of your site routed with "root"

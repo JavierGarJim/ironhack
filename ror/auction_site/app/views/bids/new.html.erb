@@ -1,11 +1,11 @@
-<% if @product.errors.any? %>
+<% if @bid.errors.any? %>
 	<ul>
-		<% @product.errors.full_messages.each do |error_msg| %>
+		<% @bid.errors.full_messages.each do |error_msg| %>
 			<li><%= error_msg %></li>
 		<% end %>
 	</ul>
 <% end %>
-<%= form_for [@user, @product] do |f| %>
+<%= form_for [@bid] do |f| %>
 	<%= f.label :title %>
 	<%= f.text_field :title %>
 	<br>
@@ -16,8 +16,11 @@
 	<%= f.date_field :deadline %>
 	<br>
 	<%= f.label :min_bid_amount %>
-	<%= f.integer :min_bid_amount %>
+	<%= f.number_field :min_bid_amount %>
 	<br>
-	<%= f.submit 'Create' %>
+	<%= f.label :email %>
+	<%= email_field_tag(:email, params[:email]) %>
+	<br>
+	<%= f.submit 'Bid!' %>
 <% end %>
-<%= link_to('Back to user', new_user_product_path(@user)) %>
+<%= link_to('Back to products', products_path) %>
