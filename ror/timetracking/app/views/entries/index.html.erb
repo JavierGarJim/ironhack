@@ -1,4 +1,7 @@
 <h1><%= @project.name %></h1>
+<% if flash[:notice] %>
+	<%= flash[:notice] %>
+<% end %>
 <ul>
 	<% @entries.each do |entry| %>
 		<li>
@@ -7,6 +10,7 @@
 			<%= entry.date %> - 
 			<%= entry.comments %>
 			<%= link_to('Edit', edit_project_entry_path(@project, entry)) %>
+			<%= link_to('Delete', project_entry_path(@project, entry), method: :delete, data: {confirm: 'Are you sure?'}) %>
 		</li>
 	<% end %>
 </ul>
