@@ -6,21 +6,12 @@
 	</ul>
 <% end %>
 <%= form_for [@bid] do |f| %>
-	<%= f.label :title %>
-	<%= f.text_field :title %>
-	<br>
-	<%= f.label :description %>
-	<%= f.text_field :description %>
-	<br>
-	<%= f.label :deadline %>
-	<%= f.date_field :deadline %>
-	<br>
-	<%= f.label :min_bid_amount %>
-	<%= f.number_field :min_bid_amount %>
+	<%= f.label :amount %>
+	<%= f.number_field :amount %>
 	<br>
 	<%= f.label :email %>
 	<%= email_field_tag(:email, params[:email]) %>
 	<br>
 	<%= f.submit 'Bid!' %>
 <% end %>
-<%= link_to('Back to products', products_path) %>
+<%= link_to('Back to product', product_path) %>
