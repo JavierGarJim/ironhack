@@ -1,0 +1,42 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-2">
+			Seach for price:
+		</div>
+		<div class="col-sm-10">
+			<%= form_tag concerts_search_for_price_path do %>
+		  		<%= number_field_tag("price", placeholder=0, min: 0) %>
+			<% end %>
+		</div>
+	</div>
+  	<div class="row">
+    	<div class="col-sm-3">
+    		<div>
+				<p>This month:</p>
+				<ul>
+					<% @month_concerts.each do |c| %>
+						<li>
+							<%= link_to(c.artist, concert_path(c)) %>
+						</li>
+					<% end %>
+				</ul>
+    		</div>
+			<div>
+			<%= link_to('All', concerts_path) %>
+			<br>
+			<%= link_to('Popular', concerts_popular_path) %>
+			</div>
+    	</div>
+
+    	<div class="col-sm-9">
+			<p>Today:</p>
+			<ul>
+				<% @today_concerts.each do |c| %>
+					<li>
+						<%= link_to(c.artist, concert_path(c)) %>
+					</li>
+				<% end %>
+			</ul>
+    	</div>
+  	</div><!-- /header row -->
+</div>

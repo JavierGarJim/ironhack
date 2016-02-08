@@ -1,0 +1,9 @@
+<h4>Popular concerts:</h4>
+<ul>
+	<% @popular_concerts.each do |c| %>
+		<li>
+			<%= link_to(c.artist, concert_path(c)) %>
+		</li>
+	<% end %>
+</ul>
+<%= link_to('Back to home', '/') %>
