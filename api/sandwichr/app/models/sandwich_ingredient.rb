@@ -1,4 +1,4 @@
 class SandwichIngredient < ActiveRecord::Base
-	has_many :ingredients
+	belongs_to :ingredient
 	belongs_to :sandwich
 end
