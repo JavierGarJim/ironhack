@@ -1,0 +1,10 @@
+<h1>Sandwiches</h1>
+
+<ul>
+	<% @sandwiches.each do |s| %>
+		<li><a href="/sandwiches/<%= s.id %>"><%= s.name %></a></li>
+	<% end %>
+</ul>
+<a href="/users/sign_out" data-method="delete">
+	Log out
+</a>

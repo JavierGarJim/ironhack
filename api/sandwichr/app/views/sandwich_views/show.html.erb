@@ -1,0 +1,36 @@
+<h1><%= @sandwich.name %></h1>
+<ul>
+	<li>
+		Bread Type: <%= @sandwich.bread_type %>
+	</li>
+	<li>
+		Ingredients:
+		<ul class="js-sandwich-ing-list">
+			<% @sandwich.ingredients.each do |i| %>
+				<li class="js-sandwich-ing" data-id="<%= i.id %>">
+					<%= i.name %>
+					<button class="js-delete-ing" data-id="<%= i.id %>">
+    					Delete
+  					</button>
+				</li>
+			<% end %>
+		</ul>
+	</li>
+	<li>
+		Calories: <%= @sandwich.total_calories %>
+	</li>
+</ul>
+<div>
+	More Ingredients:
+	<ul class="js-sandwich-id js-ing-list" data-id="<%= @sandwich.id %>">
+		<% @more_ingredients.each do |i| %>
+			<li class="js-ing" data-id="<%= i.id %>">
+				<%= i.name %>
+				<button class="js-add-ing" data-id="<%= i.id %>">
+    				Add
+  				</button>
+			</li>
+		<% end %>
+	</ul>	
+</div>
+<a href="/sandwiches">Home</a>

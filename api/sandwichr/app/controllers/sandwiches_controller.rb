@@ -63,7 +63,21 @@ class SandwichesController < ApplicationController
 
 		sandwich.save
 
-		render json: sandwich
+		render json: sandwich.to_json(include: [:ingredients])
+	end
+
+	def delete
+		ingredient = Ingredient.find_by(id: params[:id])
+		
+		sandwich = Sandwich.find_by(id: params[:sandwich_id])
+
+		sandwich.ingredients.destroy(ingredient)
+
+		sandwich.total_calories -= ingredient.calories
+
+		sandwich.save
+
+		render json: ingredient
 	end
 
 
