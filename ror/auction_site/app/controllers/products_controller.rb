@@ -2,6 +2,8 @@ class ProductsController < ApplicationController
 	def show
 		@product = Product.find(params[:id])
 		@bids = @product.bids
+		@reviews = @product.reviews
+		@review = Review.new
 	end
 
 	def index

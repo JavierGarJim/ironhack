@@ -2,6 +2,7 @@ class Product < ActiveRecord::Base
 	belongs_to :user
 	has_many :bids, dependent: :destroy
 	has_many :bidders, class_name: 'Bid', through: :bids, foreign_key: :user_id
+	has_many :reviews
 
 	validates :title, 
 		presence: true

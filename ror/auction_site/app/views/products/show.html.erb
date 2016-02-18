@@ -12,7 +12,20 @@
 		</li>
 	<% end %>
 </ul>
+<ul>
+	Reviews:
+	<% @reviews.each do |review| %>
+		<li>
+			<%= review.description %>
+		</li>
+	<% end %>
 </ul>
+<%= form_for [@product, @review] do |r| %>
+	<%= r.label :description %>
+	<%= r.text_field :description %>
+	<br>
+	<%= r.submit 'Add review!' %>
+<% end %>
 <%= link_to('Bid for it!', new_product_bid_path(@product)) %>
 <br>
 <%= link_to('User', user_path(@product.user_id)) %>

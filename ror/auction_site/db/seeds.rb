@@ -6,9 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-for i in (2..5)
-	user = User.create(name: "User#{i}", email: "user#{i}@user.com")
-
+for i in (1..5)
+	user = User.create(name: "User#{i}", email: "#{i}@user.com", password: "pass#{i}#{i}#{i}#{i}", password_confirmation: "pass#{i}#{i}#{i}#{i}")
+	
 	i.times do |j|
 		product = user.products.create(title: "P#{i}#{j}", description: "Product#{i}#{j}", deadline: DateTime.current, min_bid_amount: i * j)
 
