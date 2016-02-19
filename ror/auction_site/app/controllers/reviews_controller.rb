@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
 
 		@review.save
 
-		redirect_to products_path
+		redirect_to action: 'show', controller: 'products', id: @product.id
 	end
 
 	private

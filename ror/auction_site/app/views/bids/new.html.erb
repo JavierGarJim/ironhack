@@ -5,13 +5,13 @@
 		<% end %>
 	</ul>
 <% end %>
-<%= form_for [@bid] do |f| %>
+<%= form_for [@product, @bid] do |f| %>
 	<%= f.label :amount %>
 	<%= f.number_field :amount %>
-	<br>
+<!-- 	<br>
 	<%= f.label :email %>
-	<%= email_field_tag(:email, params[:email]) %>
+	<%= email_field_tag(:email, params[:email]) %> -->
 	<br>
 	<%= f.submit 'Bid!' %>
 <% end %>
-<%= link_to('Back to product', product_path) %>
+<%= link_to('Back to product', product_path(@product.id)) %>
