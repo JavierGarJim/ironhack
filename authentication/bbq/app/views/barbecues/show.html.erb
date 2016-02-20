@@ -1,0 +1,34 @@
+<h1>BBQ</h1>
+
+<div data-hook="bbq-info" data-bbq="<%= params[:id] %>"></div>
+<div class="js-item-table">
+	<% if @barbecue.users.exists?(current_user) %>
+		<span>Items:</span>
+		<ul class="js-item-list">
+			<% @barbecue.items.each do |i| %>
+				<li><%= i.name %></li>
+			<% end %>
+		</ul>
+		<%= form_for @item, :html => {:class => 'js-item-form'} do |form| %>
+		    <%= form.text_field :name, :class => "js-item-name" %>
+
+		  <button class="js-item-add" data-bbq="<%= params[:id] %>" type="submit">
+		    Add Item
+		  </button>
+		<% end %>
+	<% end %>	
+</div>
+<% unless @barbecue.users.empty? %>
+	<div>
+		<span>Users:</span>
+		<ul>
+			<% @barbecue.users.each do |u| %>
+				<li>
+					<span><%= u.name %></span>
+				</li>
+			<% end %>
+		</ul>
+	</div>
+<% end %>
+
+<a href="<%= barbecues_path %>">Back to list of BBQs</a>
